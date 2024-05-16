@@ -3,9 +3,38 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{05B68492-1940-4C99-AFDA-2955C0858688}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{3DCC109D-1537-47A5-9F8C-03507366FD55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{485A72DE-908A-425F-956B-F9C09E030DFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{85AF6FAC-A972-41FD-BCDD-4793E37CD78B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj", "{83F4605B-9618-4A56-B013-0B1DFE257A4A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{485A72DE-908A-425F-956B-F9C09E030DFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485A72DE-908A-425F-956B-F9C09E030DFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485A72DE-908A-425F-956B-F9C09E030DFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485A72DE-908A-425F-956B-F9C09E030DFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83F4605B-9618-4A56-B013-0B1DFE257A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F4605B-9618-4A56-B013-0B1DFE257A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F4605B-9618-4A56-B013-0B1DFE257A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F4605B-9618-4A56-B013-0B1DFE257A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DCC109D-1537-47A5-9F8C-03507366FD55} = {05B68492-1940-4C99-AFDA-2955C0858688}
+		{485A72DE-908A-425F-956B-F9C09E030DFF} = {3DCC109D-1537-47A5-9F8C-03507366FD55}
+		{83F4605B-9618-4A56-B013-0B1DFE257A4A} = {85AF6FAC-A972-41FD-BCDD-4793E37CD78B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CDABDA9B-402A-4523-851C-3A6FC405D322}
