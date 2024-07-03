@@ -34,13 +34,13 @@
             return order;
         }
 
-        public void Update(OrderName orderName, Address shippingAddress, Address billingAddress, Payment payment, OrderStatus orderStatus)
+        public void Update(OrderName orderName, Address shippingAddress, Address billingAddress, Payment payment, OrderStatus status)
         {
             OrderName = orderName;
             ShippingAddress = shippingAddress;
             BillingAddress = billingAddress;
             Payment = payment;
-            Status = orderStatus;
+            Status = status;
 
             AddDomainEvent(new OrderUpdatedEvent(this));
         }

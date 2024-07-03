@@ -47,7 +47,7 @@
                          shippingAddress: updatedShippingAddress,
                          billingAddress: updatedBillingAddress,
                          payment: updatedPayment,
-                         orderStatus: orderDto.OrderStatus);
+                         status: orderDto.Status);
         }
     }
 }

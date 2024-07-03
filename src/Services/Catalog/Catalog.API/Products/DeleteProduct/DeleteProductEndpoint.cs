@@ -18,8 +18,8 @@
              .Produces<DeleteProductResponse>(statusCode: StatusCodes.Status200OK)
              .ProducesProblem(statusCode: StatusCodes.Status400BadRequest)
              .ProducesProblem(statusCode: StatusCodes.Status404NotFound)
-             .WithSummary("Delete Products")
-             .WithDescription("Delete Products");
+             .WithSummary("Delete Product")
+             .WithDescription("Delete Product");
         }
     }
 }

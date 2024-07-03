@@ -27,7 +27,7 @@
                                         Expiration: order.Payment.Expiration,
                                         Cvv: order.Payment.CVV,
                                         PaymentMethod: order.Payment.PaymentMethod),
-                OrderStatus: order.Status,
+                Status: order.Status,
                 OrderItems: order.OrderItems.Select(oi => new OrderItemDto(oi.OrderId.Value,
                                                                            oi.ProductId.Value,
                                                                            oi.Quantity,

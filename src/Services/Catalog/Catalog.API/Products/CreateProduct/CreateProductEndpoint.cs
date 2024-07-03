@@ -26,8 +26,8 @@
             .WithName("CreateProduct")
             .Produces<CreateProductResponse>(statusCode: StatusCodes.Status201Created)
             .ProducesProblem(statusCode: StatusCodes.Status400BadRequest)
-            .WithSummary("CreateProduct")
-            .WithDescription("CreateProduct");
+            .WithSummary("Create Product")
+            .WithDescription("Create Product");
         }
     }
 }
