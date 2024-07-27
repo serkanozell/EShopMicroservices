@@ -1,4 +1,8 @@
-﻿namespace Basket.API.Basket.CheckoutBasket
+﻿using Marten.Events.Daemon;
+using System.Net.Mail;
+using System.Reflection.Emit;
+
+namespace Basket.API.Basket.CheckoutBasket
 {
     public record CheckoutBasketRequest(BasketCheckoutDto BasketCheckoutDto);
     public record CheckoutBasketResponse(bool IsSuccess);
@@ -9,7 +13,23 @@
         {
             app.MapPost("basket/checkout", async (CheckoutBasketRequest request, ISender sender) =>
             {
-                var command = request.Adapt<CheckoutBasketCommand>();
+                var basketCheckoutDto = new BasketCheckoutDto(UserName: request.BasketCheckoutDto.UserName,
+                                                              CustomerId: request.BasketCheckoutDto.CustomerId,
+                                                              TotalPrice: 0,
+                                                              FirstName: request.BasketCheckoutDto.FirstName,
+                                                              LastName: request.BasketCheckoutDto.LastName,
+                                                              EmailAddress: request.BasketCheckoutDto.EmailAddress,
+                                                              AddressLine: request.BasketCheckoutDto.AddressLine,
+                                                              Country: request.BasketCheckoutDto.Country,
+                                                              State: request.BasketCheckoutDto.State,
+                                                              ZipCode: request.BasketCheckoutDto.ZipCode,
+                                                              CardName: request.BasketCheckoutDto.CardName,
+                                                              CardNumber: request.BasketCheckoutDto.CardNumber,
+                                                              Expiration: request.BasketCheckoutDto.Expiration,
+                                                              CVV: request.BasketCheckoutDto.CVV,
+                                                              PaymentMethod: request.BasketCheckoutDto.PaymentMethod);
+
+                var command = new CheckoutBasketCommand(BasketCheckoutDto: basketCheckoutDto);
 
                 var result = await sender.Send(command);
 

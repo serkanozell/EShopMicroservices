@@ -22,8 +22,24 @@ namespace Basket.API.Basket.CheckoutBasket
             if (basket == null)
                 return new CheckoutBasketResult(false);
 
-            var eventMessage = command.BasketCheckoutDto.Adapt<BasketCheckOutEvent>();
-            eventMessage.TotalPrice = basket.TotalPrice;
+            var eventMessage = new BasketCheckoutEvent()
+            {
+                UserName = command.BasketCheckoutDto.UserName,
+                CustomerId = command.BasketCheckoutDto.CustomerId,
+                TotalPrice = basket.TotalPrice,
+                FirstName = command.BasketCheckoutDto.FirstName,
+                LastName = command.BasketCheckoutDto.LastName,
+                EmailAddress = command.BasketCheckoutDto.EmailAddress,
+                AddressLine = command.BasketCheckoutDto.AddressLine,
+                Country = command.BasketCheckoutDto.Country,
+                State = command.BasketCheckoutDto.State,
+                ZipCode = command.BasketCheckoutDto.ZipCode,
+                CardName = command.BasketCheckoutDto.CardName,
+                CardNumber = command.BasketCheckoutDto.CardNumber,
+                Expiration = command.BasketCheckoutDto.Expiration,
+                CVV = command.BasketCheckoutDto.CVV,
+                PaymentMethod = command.BasketCheckoutDto.PaymentMethod
+            };
 
             await publishEndpoint.Publish(eventMessage, cancellationToken);
 
